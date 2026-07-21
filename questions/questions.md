@@ -12,3 +12,18 @@
 
 5. What is the recommended approach for understanding a new CLI command?
 5. Run the command with the -Help flag, which typically provides documentation, available options, and usage instructions for the script.
+
+6. What are the two main components of a React Native app?
+6. A React Native app consists of a JavaScript side and a native app side
+
+7. How can you start the Expo packager for a React Native project?
+7. You can use commands like 'npx expo start', 'yarn start', or 'npm run start'
+
+8. What is the main difference between accessing the debug menu on iOS and Android in Expo Go?
+8. On iOS, you hold three fingers on the screen to open the debug menu, while on Android, you shake the phone
+
+9. What is TypeScript in relation to JavaScript?
+9. TypeScript is a superset of JavaScript that adds type information, and all JavaScript code is valid TypeScript code
+
+10. What is the workaround if you cannot connect to Expo Go on the same Wi-Fi network?
+10. Run the start command with '--tunnel' option, which uses Ngrok to expose the bundler externally to the internet
