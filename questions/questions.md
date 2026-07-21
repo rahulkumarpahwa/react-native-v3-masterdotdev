@@ -27,3 +27,18 @@
 
 10. What is the workaround if you cannot connect to Expo Go on the same Wi-Fi network?
 10. Run the start command with '--tunnel' option, which uses Ngrok to expose the bundler externally to the internet
+
+11. What is the primary role of the React Native framework?
+11. The React Native framework provides tools and libraries not included by default in React, such as navigation, push notifications, data storage, and other essential mobile app functionalities.
+
+12. What are the key requirements for a React Native framework?
+12. A React Native framework must be open source, popular, free, have no vendor lock-in, and not require paid features to use the core functionality.
+
+13. What limitations does vanilla React Native have out of the box?
+13. Vanilla React Native lacks built-in support for navigation, push notifications, data storage across app launches, camera access, changing app icons, and building app bundles for store release.
+
+14. What is the purpose of Expo Go?
+14. Expo Go is a sandbox environment designed for learning, prototyping, and getting started quickly with React Native, and is not recommended for building production apps.
+
+15. What core building blocks does React Native provide by default?
+15. React Native provides basic components like Text, View, ScrollView, and Lists out of the box, along with the ability to run React JavaScript code on iOS and Android platforms using native components.
