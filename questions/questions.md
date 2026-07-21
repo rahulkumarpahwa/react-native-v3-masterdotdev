@@ -42,3 +42,18 @@
 
 15. What core building blocks does React Native provide by default?
 15. React Native provides basic components like Text, View, ScrollView, and Lists out of the box, along with the ability to run React JavaScript code on iOS and Android platforms using native components.
+
+16. What command can be used to set up linting in Expo SDK 51?
+16. npx expo Lint
+
+17. What are the key benefits of using Prettier?
+17. Prettier allows developers to focus on writing code by automatically formatting and handling code style, reducing manual formatting decisions
+
+18. How can Prettier errors be automatically fixed?
+18. By running the Lint command with the --fix flag, or by using an editor like VS Code with an ESLint plugin that auto-fixes on save
+
+19. What configuration file can be created to change Prettier's default quote preference?
+19. .prettierrc.js
+
+20. What does integrating Prettier with ESLint do?
+20. It extends the Prettier configuration and adds the Prettier plugin so that Prettier formatting errors are displayed as ESLint errors
