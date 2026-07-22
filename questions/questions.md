@@ -72,3 +72,18 @@
 
 25. How are styles created in React Native?
 25. Using JavaScript objects, typically created with StyleSheet.create(), with no built-in CSS modules or variables
+
+26. What are the two most commonly used components for creating buttons in React Native?
+26. TouchableOpacity and Pressable
+
+27. What prop can be used to adjust the opacity effect when pressing a TouchableOpacity?
+27. activeOpacity
+
+28. What React Native method is used to create an alert dialog?
+28. Alert.alert()
+
+29. What are the three arguments typically passed to Alert.alert()?
+29. Title, subtitle/description, and an array of button options
+
+30. What are the typical style options for button options in an alert?
+30. 'destructive' (usually for dangerous actions like delete) and 'cancel'
