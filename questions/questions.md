@@ -102,3 +102,15 @@
 
 35. How do you pass props to a component in React Native?
 35. By passing an object with named properties when rendering the component, and then destructuring those properties in the component's function definition
+
+36. How can you conditionally apply styles in React Native using an array of style objects?
+36. You can pass an array of style objects and include 'undefined' for optional styles. This allows you to conditionally apply styles by adding styles to the array or passing 'undefined' when the condition is not met.
+
+37. What is a shorthand way to pass a 'true' boolean prop in React Native?
+37. For boolean props, instead of isCompleted={true}, you can simply use isCompleted. This is a concise syntax specifically for boolean properties that are true.
+
+38. How can you add a text decoration to mark an item as completed?
+38. Use textDecorationLine: 'line-through' and textDecorationColor to create a visual indication of a completed item by crossing out the text with a specific color.
+
+39. How do you handle optional style properties in React Native?
+39. You can pass 'undefined' as a style, which allows you to conditionally apply styles without causing errors. This means you can use an array of styles with conditional logic by including 'undefined' when a condition is not met.

@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, PixelRatio, Pressable } from "react-native";
-import { theme } from "./theme";
+import { theme } from "./themes/theme";
 import { ShoppingListItem } from "./components/ShoppingListItem";
 
 export default function App() {
@@ -17,10 +17,10 @@ export default function App() {
         </Pressable>
       </View> */}
 
-      <ShoppingListItem name="Coffee" />
-      <ShoppingListItem name="Tea" />
-      <ShoppingListItem name="Sugar" />
-      <ShoppingListItem name="boligarfo" />
+      <ShoppingListItem name="Coffee" isCompleted={false} />
+      <ShoppingListItem name="Tea" isCompleted={true} />
+      <ShoppingListItem name="Sugar" isCompleted />
+      <ShoppingListItem name="boligarfo" isCompleted={true} />
       {/* <View style={[StyleSheet.absoluteFill, {backgroundColor : "red"}]} /> */}
       {/* <View style={{...StyleSheet.absoluteFill, backgroundColor : "red" }} /> */}
 
