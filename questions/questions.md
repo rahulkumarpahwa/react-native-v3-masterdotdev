@@ -87,3 +87,18 @@
 
 30. What are the typical style options for button options in an alert?
 30. 'destructive' (usually for dangerous actions like delete) and 'cancel'
+
+31. What is the purpose of creating components in React Native?
+31. To create a modular app structure and prevent files like app.tsx from becoming massive and difficult to manage
+
+32. How do you define a prop as optional in TypeScript?
+32. By adding a question mark (?) after the property name in the type definition, such as name?: string
+
+33. How can you embed dynamic values into a string in JavaScript?
+33. By using backticks () and embedding values with ${variableName}` syntax
+
+34. What does StyleSheet.create() primarily do in development mode?
+34. It performs validation to ensure the styles passed are valid and will not cause crashes
+
+35. How do you pass props to a component in React Native?
+35. By passing an object with named properties when rendering the component, and then destructuring those properties in the component's function definition
