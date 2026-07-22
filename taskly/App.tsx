@@ -1,12 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, Text, View, PixelRatio } from "react-native";
+import { theme } from "./theme";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <Text>This is the test text I Have putted here.</Text>
-      <StatusBar style="auto" />
+      <View style={{ alignItems: "center", justifyContent: "center" }}>
+        <Text style={{ fontSize: 20, fontWeight: "400" }}>Shopping List</Text>
+      </View>
+
+      <View style={styles.itemContainer}>
+        <Text style={styles.itemText}>Coffee </Text>
+      </View>
+      {/* <View>
+        <Text>Pixel Ratio : {PixelRatio.get()}</Text>
+      </View> */}
+      {/* <Text>Open up App.tsx to start working on your app!</Text> */}
+      {/* <StatusBar style="auto" /> */}
     </View>
   );
 }
@@ -14,8 +24,15 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    justifyContent: "center",
   },
+  itemContainer: {
+    borderBottomWidth: 1,
+    borderBottomColor: "#1a759f",
+    paddingHorizontal: 8,
+    paddingVertical: 16,
+    alignItems: "center",
+  },
+  itemText: { fontSize: 18, fontWeight: "200" },
 });

@@ -57,3 +57,18 @@
 
 20. What does integrating Prettier with ESLint do?
 20. It extends the Prettier configuration and adds the Prettier plugin so that Prettier formatting errors are displayed as ESLint errors
+
+21. What is the equivalent of a div in React Native?
+21. View component is the equivalent of a div in React Native
+
+22. What component must all text be wrapped in within React Native?
+22. Text component
+
+23. What is the default flex direction in React Native?
+23. Column (unlike web, which defaults to row)
+
+24. What units are used for styling dimensions in React Native?
+24. Display points, which vary by device pixel density
+
+25. How are styles created in React Native?
+25. Using JavaScript objects, typically created with StyleSheet.create(), with no built-in CSS modules or variables
