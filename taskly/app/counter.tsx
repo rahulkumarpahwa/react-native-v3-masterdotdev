@@ -50,7 +50,7 @@ export default function CounterScreen() {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity onPress={() => router.navigate("/idea")}>
+      {/* <TouchableOpacity onPress={() => router.navigate("/idea")}>
         <Text
           style={{
             textAlign: "center",
@@ -63,7 +63,7 @@ export default function CounterScreen() {
         >
           Go To /idea
         </Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 }

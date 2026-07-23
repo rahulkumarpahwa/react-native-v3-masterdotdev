@@ -161,3 +161,18 @@ navigate() may go back in the stack if the target screen already exists
 
 54. What platform-specific behavior exists for navigation in Expo Router?
 54. Navigation animations and header styling differ slightly between iOS and Android to provide a more natural look and feel for each platform
+
+55. What does rendering a screen as a modal mean in React Native navigation?
+55. Rendering a screen as a modal means rendering it on top of other content, with the important requirement that the modal needs to be defined above or adjacent to the screens it's being rendered on top of.
+
+56. How can you change the animation style when presenting a modal screen in Expo Router?
+56. You can change the animation style by using options like 'fade', 'slide from bottom', or configure custom animations when defining the screen's presentation mode.
+
+57. What is required to add an icon to a bottom tab in Expo Router?
+57. To add an icon to a bottom tab, you need to use the tabBarIcon prop in the options, which is a function that returns a React component. The function receives props like focused state, color, and size.
+
+58. How can you globally customize the color of active bottom tabs in Expo Router?
+58. You can use screen options in the top-level tabs component and set tabBarActiveTintColor to define the color for active tabs and icons.
+
+59. What is the key difference in modal rendering between iOS and Android platforms?
+59. On Android, modal screens may look similar to regular screens, whereas on iOS they have a distinct modal appearance. The rendering looks different but is not considered a bug, but rather platform-appropriate navigation.
