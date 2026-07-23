@@ -2,12 +2,25 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, PixelRatio, Pressable } from "react-native";
 import { theme } from "./themes/theme";
 import { ShoppingListItem } from "./components/ShoppingListItem";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <Text style={{ fontSize: 20, fontWeight: "400" }}>Shopping List</Text>
+      <View
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 6,
+          marginBottom: 10,
+        }}
+      >
+        <Text>
+          <FontAwesome6 name="list-check" size={24} color="black" />{" "}
+        </Text>
+        <Text style={{ fontSize: 20, fontWeight: "400" }}> Shopping List</Text>
       </View>
 
       {/* <View style={styles.itemContainer}>

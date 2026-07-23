@@ -114,3 +114,18 @@
 
 39. How do you handle optional style properties in React Native?
 39. You can pass 'undefined' as a style, which allows you to conditionally apply styles without causing errors. This means you can use an array of styles with conditional logic by including 'undefined' when a condition is not met.
+
+40. What is a recommended approach for using icons in mobile UIs?
+40. Use icon buttons instead of text, which makes mobile apps feel nicer and allows less text on the screen. Expo icons library is a convenient way to quickly add icons to an app.
+
+41. What potential performance issue exists when using SVGs in React Native?
+41. SVGs can be performance-intensive, especially on Android. If an app uses many SVGs, it might slow down significantly. Small PNGs are often preferred for rendering icons in React Native.
+
+42. Why use npx expo install instead of standard package managers like npm or yarn?
+42. npx expo install ensures SDK compatibility, checking that the library being installed works with the current Expo SDK version. This helps prevent version conflicts with native modules.
+
+43. What determines which package manager (yarn, npm, pnpm) is used during installation?
+43. The lock file in the project determines the package manager. If a yarn.lock file exists, yarn will be used; if package-lock.json exists, npm will be used; if pnpm-lock.yaml exists, pnpm will be used.
+
+44. What alternative methods exist for adding icons in a React Native application if Expo icons are not suitable?
+44. Alternatives include using react-native-svg for SVG icons, Expo Image for rendering SVGs, or importing custom SVG icons from various icon libraries and websites.
