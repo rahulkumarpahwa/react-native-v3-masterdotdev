@@ -47,6 +47,7 @@ export default function Layout() {
         name="counter"
         options={{
           title: "Counter",
+          headerShown: false, // we will remove the header of the outer screen in case of two headers
           headerTitleAlign: "center",
           tabBarIcon: ({ color, size }) => {
             return (

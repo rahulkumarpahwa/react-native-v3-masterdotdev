@@ -176,3 +176,18 @@ navigate() may go back in the stack if the target screen already exists
 
 59. What is the key difference in modal rendering between iOS and Android platforms?
 59. On Android, modal screens may look similar to regular screens, whereas on iOS they have a distinct modal appearance. The rendering looks different but is not considered a bug, but rather platform-appropriate navigation.
+
+60. What is an example of nesting navigators in native land?
+60. A stack within a tab, a stack within a stack, a stack within a modal, or a stack within a stack within a stack can be nested
+
+61. How do you convert a screen into a stack navigator?
+61. Convert the file into a folder and make the original file the index screen of that folder
+
+62. When dealing with nested navigators, what can happen with navigation headers?
+62. You can end up with two navigation headers, which can be resolved by hiding the outer header using headerShown: false
+
+63. What is hitSlop used for in a Pressable component?
+63. It defines an additional touchable area around the pressable element that can trigger the press event, improving user experience for small buttons or icons
+
+64. How can you improve the usability of a small icon button?
+64. Wrap the icon in a Pressable component and use hitSlop to increase the touchable area around the button

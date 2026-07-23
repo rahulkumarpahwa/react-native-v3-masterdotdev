@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
-import { theme } from "../themes/theme";
+import { theme } from "../../themes/theme";
 import { useRouter } from "expo-router";
 
 export default function CounterScreen() {
