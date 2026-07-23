@@ -1,6 +1,7 @@
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { theme } from "../themes/theme";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import Entypo from "@expo/vector-icons/Entypo";
 
 type Props = {
   name?: string;
@@ -38,14 +39,18 @@ export function ShoppingListItem({ name, isCompleted }: Props) {
         isCompleted ? styles.itemCompleted : undefined,
       ]}
     >
-      <Text
-        style={[
-          styles.itemText,
-          isCompleted ? styles.itemTextCompleted : undefined,
-        ]}
-      >
-        {name}
-      </Text>
+      <View style={{flexDirection : "row", justifyContent: "center",  gap : 10}}>
+        {" "}
+        <Text><Entypo name={isCompleted ? 'check' : 'circle' } size={24} color={theme.colorGrey} /></Text>
+        <Text
+          style={[
+            styles.itemText,
+            isCompleted ? styles.itemTextCompleted : undefined,
+          ]}
+        >
+          {name}
+        </Text>
+      </View>
       <TouchableOpacity // adds opacity than pressable
         style={[
           styles.itemButton,
@@ -59,7 +64,11 @@ export function ShoppingListItem({ name, isCompleted }: Props) {
       >
         {/* <Text style={styles.itemButtonText}>Delete</Text> */}
         <Text>
-          <Ionicons name="close-circle" size={28} color={isCompleted ? theme.colorGrey : theme.colorRed} />
+          <Ionicons
+            name="close-circle"
+            size={28}
+            color={isCompleted ? theme.colorGrey : theme.colorRed}
+          />
         </Text>
       </TouchableOpacity>
     </View>
@@ -83,7 +92,7 @@ const styles = StyleSheet.create({
   itemButton: {
     // borderWidth: 1,
     padding: 8,
-    // borderRadius: 6, 
+    // borderRadius: 6,
     // backgroundColor: theme.colorBlack,
     // borderColor: theme.colorBlack,
   },
