@@ -129,3 +129,18 @@
 
 44. What alternative methods exist for adding icons in a React Native application if Expo icons are not suitable?
 44. Alternatives include using react-native-svg for SVG icons, Expo Image for rendering SVGs, or importing custom SVG icons from various icon libraries and websites.
+
+45. What are the three main navigation concepts in mobile apps that differ from web navigation?
+45. Bottom tabs, modals, and stack navigator
+
+46. How does file system-based routing in Expo Router work for determining screen and URL paths?
+46. File and folder names dictate screen names and URLs, with the app folder as the root. For example, an index.tsx becomes the root, a home folder becomes /home, and a products folder becomes /products
+
+47. What is the purpose of a layout file in Expo Router?
+47. A layout file (named _layout.tsx) tells how screens in a folder should be laid out, such as defining navigation type (stack, tab, modal) and adding headers
+
+48. What is the significance of the scheme in mobile app deep linking?
+48. The scheme allows a mobile app to register and listen for specific URL intents, enabling apps to respond when a particular URL scheme is triggered
+
+49. What library helps handle safe areas in mobile app development?
+49. react-native-safe-area-context, which identifies the safe area of the screen to use for content placement

@@ -39,9 +39,14 @@ export function ShoppingListItem({ name, isCompleted }: Props) {
         isCompleted ? styles.itemCompleted : undefined,
       ]}
     >
-      <View style={{flexDirection : "row", justifyContent: "center",  gap : 10}}>
-        {" "}
-        <Text><Entypo name={isCompleted ? 'check' : 'circle' } size={24} color={theme.colorGrey} /></Text>
+      <View style={{ flexDirection: "row", justifyContent: "center", gap: 10 }}>
+        <Text>
+          <Entypo
+            name={isCompleted ? "check" : "circle"}
+            size={24}
+            color={theme.colorGrey}
+          />
+        </Text>
         <Text
           style={[
             styles.itemText,
