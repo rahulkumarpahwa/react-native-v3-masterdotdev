@@ -144,3 +144,20 @@
 
 49. What library helps handle safe areas in mobile app development?
 49. react-native-safe-area-context, which identifies the safe area of the screen to use for content placement
+
+50. What is the default navigation behavior in Expo Router when moving between screens?
+50. By default, screens are rendered in a stack, with new screens rendering on top of previous screens. When navigating back, it returns to the previous screen.
+
+51. What are the three main ways to navigate between screens in Expo Router?
+51. Using the Link component, 2. Navigating programmatically with router.navigate(), router.push(), or router.replace(), 3. Using built-in navigation buttons from React Navigation
+
+52. What is the difference between router.push(), router.replace(), and router.navigate() in Expo Router?
+52. push() always adds a new screen to the stack
+replace() replaces the current screen
+navigate() may go back in the stack if the target screen already exists
+
+53. How can you navigate programmatically in Expo Router?
+53. Use the useRouter() hook to get a router object, then call methods like navigate(), push(), or replace() with the target screen's path
+
+54. What platform-specific behavior exists for navigation in Expo Router?
+54. Navigation animations and header styling differ slightly between iOS and Android to provide a more natural look and feel for each platform

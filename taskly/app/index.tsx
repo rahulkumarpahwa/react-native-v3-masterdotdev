@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, PixelRatio, Pressable } from "react-native";
 import { ShoppingListItem } from "../components/ShoppingListItem";
+import { Link } from "expo-router";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
 
       {/* <StatusBar style="auto" />  */}
       {/* it will add the extra header space over the app. */}
+      <Link href="/counter" style={{textAlign : "center", padding : 12, margin: 18, fontSize : 18, borderWidth : 1, borderRadius : 6}}>Go To Counter</Link>
     </View>
   );
 }
