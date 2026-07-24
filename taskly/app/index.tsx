@@ -32,7 +32,7 @@ export default function App() {
     },
   ];
 
-  let isFocus: boolean = false;
+  const [isFocused, setIsFocused] = useState(false);
   const [list, changeList] = useState<List[]>(newList);
   const [input, changeInput] = useState<string>("");
   const handleSubmit = () => {
@@ -85,16 +85,15 @@ export default function App() {
           <TextInput
             style={[
               styles.textInput,
-              isFocus ? { borderColor: theme.colorGrey } : undefined,
+              isFocused? { borderColor: theme.colorGrey } : undefined,
             ]}
             placeholder="E.g. Coffee"
             onChangeText={changeInput}
             keyboardType="default"
             maxLength={30}
             autoFocus
-            onFocus={() => {
-              isFocus = true;
-            }}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
             onSubmitEditing={handleSubmit}
             returnKeyType="done"
           >
