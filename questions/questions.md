@@ -191,3 +191,18 @@ navigate() may go back in the stack if the target screen already exists
 
 64. How can you improve the usability of a small icon button?
 64. Wrap the icon in a Pressable component and use hitSlop to increase the touchable area around the button
+
+65. What React Native component is used to receive text input from the user's keyboard?
+65. TextInput
+
+66. How do you create a controlled input in React Native using a state hook?
+66. Use useState to create a value state and a setValue function, then set the TextInput's value prop to the state value and use onChangeText to update the state
+
+67. What prop can be used to specify the type of keyboard that appears for a TextInput?
+67. keyboardType
+
+68. What prop defines the appearance of the return key on a TextInput?
+68. returnKeyType
+
+69. How can you generate a unique ID for a new list item when the user submits text?
+69. Use new Date().toISOString() to create a timestamp-based unique identifier

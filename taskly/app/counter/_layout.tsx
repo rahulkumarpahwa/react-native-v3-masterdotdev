@@ -15,20 +15,22 @@ export default function Layout() {
         options={{
           title: "Counter",
           headerTitleAlign: "center",
+          presentation : "modal",
+          animation :"slide_from_bottom",
           headerRight: () => {
             return (
               <View
                 style={{
-                  flexDirection: "row",
-                  gap: 10,
+                  flexDirection: "row-reverse",
+                  gap: 16,
                   alignItems: "center",
                   justifyContent: "center",
                 }}
               >
-                <TouchableOpacity
+                <TouchableOpacity hitSlop={20}
                   onPress={() => router.navigate("/counter/settings")}
                 >
-                  <Text>Settings</Text>
+                  <MaterialIcons name="settings" size={24} color="black" />
                 </TouchableOpacity>
 
                 <Link href="/counter/history" asChild>

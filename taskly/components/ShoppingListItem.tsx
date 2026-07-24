@@ -1,14 +1,36 @@
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Alert,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { theme } from "../themes/theme";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Entypo from "@expo/vector-icons/Entypo";
+import { List } from "../utils/types";
+import { Dispatch, SetStateAction } from "react";
 
 type Props = {
+  id: number;
   name?: string;
   isCompleted?: boolean;
+  deleteTask: (id: number, list: List[]) => List[];
+  list: List[];
+  changeList: Dispatch<SetStateAction<List[]>>;
+  changeStatus: (id: number, list: List[]) => List[];
 };
 
-export function ShoppingListItem({ name, isCompleted }: Props) {
+export function ShoppingListItem({
+  id,
+  name,
+  isCompleted,
+  deleteTask,
+  list,
+  changeList,
+  changeStatus,
+}: Props) {
   const handleDelete = (): void => {
     Alert.alert(
       `Are you sure you want to delete ${name ? name : "this"}?`,
@@ -17,7 +39,8 @@ export function ShoppingListItem({ name, isCompleted }: Props) {
         {
           text: "Yes",
           onPress: () => {
-            console.log("SELECTED YES");
+            const newList = deleteTask(id, list);
+            changeList(newList);
           },
           style: "destructive",
         },
@@ -40,13 +63,21 @@ export function ShoppingListItem({ name, isCompleted }: Props) {
       ]}
     >
       <View style={{ flexDirection: "row", justifyContent: "center", gap: 10 }}>
-        <Text>
-          <Entypo
-            name={isCompleted ? "check" : "circle"}
-            size={24}
-            color={theme.colorGrey}
-          />
-        </Text>
+        <Pressable
+          onPress={() => {
+            const newList = changeStatus(id, list);
+            changeList(newList);
+          }}
+        >
+          <Text>
+            <Entypo
+              name={isCompleted ? "check" : "circle"}
+              size={24}
+              color={theme.colorGrey}
+            />
+          </Text>
+        </Pressable>
+
         <Text
           style={[
             styles.itemText,
@@ -85,7 +116,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: theme.colorCerulean,
     paddingHorizontal: 18,
-    paddingVertical: 16,
+    paddingVertical: 4,
     alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "row",
