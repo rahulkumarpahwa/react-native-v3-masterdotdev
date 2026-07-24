@@ -236,3 +236,18 @@ navigate() may go back in the stack if the target screen already exists
 
 79. How does FlatList handle keys for list items?
 79. FlatList automatically handles keys if the data has an ID or key property. If not, a keyExtractor function can be used to generate unique IDs.
+
+80. How do you implement a delete function for a shopping list item in React Native?
+80. Use the filter method to create a new shopping list that excludes the item with the matching ID: newShoppingList = shoppingList.filter(item => item.id !== idToDelete), then update the state with the new shopping list.
+
+81. What is the purpose of using completedAtTimestamp as a number in the shopping list item type?
+81. The completedAtTimestamp allows tracking when an item was completed by storing the timestamp when it is marked as complete. It can be set to Date.now() when completed, and set to undefined when uncompleted.
+
+82. How can you dynamically determine if a shopping list item is completed?
+82. Use a boolean conversion: isCompleted = Boolean(item.completedAtTimestamp). If the completedAtTimestamp exists, the item is considered completed; if it's undefined, the item is not completed.
+
+83. What method is used to toggle the completion status of a shopping list item?
+83. Use map() to create a new shopping list, checking if the current item matches the ID to toggle. If it matches, set completedAtTimestamp to undefined (if currently completed) or Date.now() (if currently not completed).
+
+84. How do you implement a toggle complete function for a shopping list item in React Native?
+84. Create a handleToggleComplete function that takes an item ID, maps through the shopping list, and either sets completedAtTimestamp to undefined or Date.now() based on the current completion status of the item.
