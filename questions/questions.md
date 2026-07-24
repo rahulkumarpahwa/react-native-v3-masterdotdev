@@ -221,3 +221,18 @@ navigate() may go back in the stack if the target screen already exists
 
 74. How do you import ScrollView in a React Native application?
 74. Import ScrollView from 'react-native' using the syntax: import { ScrollView } from 'react-native'
+
+75. What component should be used instead of ScrollView when rendering large lists of items in React Native?
+75. FlatList should be used instead of ScrollView when rendering large lists of items in React Native.
+
+76. How does FlatList optimize rendering of large lists?
+76. FlatList tracks the visible area on the page and only renders items within that area, unmounting items that have been scrolled past.
+
+77. What two props are required when using a FlatList?
+77. A FlatList requires the 'data' prop (the array of items) and the 'renderItem' prop (a function that defines how to render each item).
+
+78. What component can be used in FlatList to display content when the list is empty?
+78. The ListEmptyComponent prop can be used to render content when the list is empty.
+
+79. How does FlatList handle keys for list items?
+79. FlatList automatically handles keys if the data has an ID or key property. If not, a keyExtractor function can be used to generate unique IDs.
