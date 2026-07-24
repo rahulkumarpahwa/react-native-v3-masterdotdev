@@ -206,3 +206,18 @@ navigate() may go back in the stack if the target screen already exists
 
 69. How can you generate a unique ID for a new list item when the user submits text?
 69. Use new Date().toISOString() to create a timestamp-based unique identifier
+
+70. What does a ScrollView do in React Native when content exceeds screen size?
+70. A ScrollView enables scrolling when content is larger than the screen, making previously overflowing content accessible by allowing vertical or horizontal scrolling.
+
+71. What is the difference between containerStyle and contentContainerStyle in a ScrollView?
+71. The containerStyle affects the ScrollView container itself, while contentContainerStyle applies styles to the content inside the ScrollView, such as adding padding without causing overflow.
+
+72. How can you make specific elements sticky in a ScrollView?
+72. By using the stickyHeaderIndices prop, which takes an array of indices representing which elements should remain fixed at the top of the ScrollView when scrolling.
+
+73. Why might content overflow in a native mobile app without a ScrollView?
+73. Unlike web browsers, native mobile apps do not automatically create scrollbars when content exceeds screen size. You must explicitly use a ScrollView to enable scrolling.
+
+74. How do you import ScrollView in a React Native application?
+74. Import ScrollView from 'react-native' using the syntax: import { ScrollView } from 'react-native'

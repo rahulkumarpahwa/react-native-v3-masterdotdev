@@ -1,5 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, PixelRatio, Pressable } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  PixelRatio,
+  Pressable,
+  ScrollView,
+} from "react-native";
 import { ShoppingListItem } from "../components/ShoppingListItem";
 import { Link } from "expo-router";
 import { TextInput } from "react-native";
@@ -39,7 +46,11 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.contentContainer}
+      stickyHeaderIndices={[0]} // make the View inside the scroll view sticky and index start from the first view with 0
+    >
       {/* <View style={styles.itemContainer}>
         <Text style={styles.itemText}>Coffee</Text>
         <Pressable onPress={handleDelete} style={styles.itemButton}>
@@ -47,31 +58,35 @@ export default function App() {
         </Pressable>
       </View> */}
 
-      <TextInput
-        style={styles.textInput}
-        placeholder="E.g. Coffee"
-        onChangeText={(input) => changeInput(input)}
-        keyboardType="default"
-        autoFocus
-        maxLength={30}
-        onSubmitEditing={handleSubmit}
-        returnKeyType="done"
-      >
-        {input}
-      </TextInput>
-      {list.length > 0 &&
-        list.map((item) => (
-          <ShoppingListItem
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            isCompleted={item.status}
-            deleteTask={deleteTask}
-            list={list}
-            changeList={changeList}
-            changeStatus={toggleTask}
-          ></ShoppingListItem>
-        ))}
+      <View>
+        <TextInput
+          style={styles.textInput}
+          placeholder="E.g. Coffee"
+          onChangeText={(input) => changeInput(input)}
+          keyboardType="default"
+          autoFocus
+          maxLength={30}
+          onSubmitEditing={handleSubmit}
+          returnKeyType="done"
+        >
+          {input}
+        </TextInput>
+      </View>
+      <View>
+        {list.length > 0 &&
+          list.map((item) => (
+            <ShoppingListItem
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              isCompleted={item.status}
+              deleteTask={deleteTask}
+              list={list}
+              changeList={changeList}
+              changeStatus={toggleTask}
+            ></ShoppingListItem>
+          ))}{" "}
+      </View>
 
       {/* <View style={[StyleSheet.absoluteFill, {backgroundColor : "red"}]} /> */}
       {/* <View style={{...StyleSheet.absoluteFill, backgroundColor : "red" }} /> */}
@@ -83,7 +98,7 @@ export default function App() {
       {/* <StatusBar style="auto" />  */}
       {/* it will add the extra header space over the app. */}
       {/* <Link href="/counter" style={{textAlign : "center", padding : 12, margin: 18, fontSize : 18, borderWidth : 1, borderRadius : 6}}>Go To Counter</Link> */}
-    </View>
+    </ScrollView>
   );
 }
 
@@ -91,18 +106,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingTop: 4,
+  },
+  contentContainer: {
+    paddingVertical: 12,
+    marginHorizontal: 4,
   },
   textInput: {
     borderWidth: 2,
-    padding: 12,
+    padding: 14,
     marginHorizontal: 10,
-    marginVertical: 8,
-    borderColor: theme.colorLightGrey,
+    marginVertical: 10,
+    borderColor: theme.colorGrey,
     alignItems: "center",
     justifyContent: "space-between",
     flexDirection: "row",
     fontSize: 18,
     borderRadius: 10,
+    backgroundColor: theme.colorWhite,
   },
 });
