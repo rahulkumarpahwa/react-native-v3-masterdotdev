@@ -12,33 +12,36 @@ import {
 import { ShoppingListItem } from "../components/ShoppingListItem";
 import { Link } from "expo-router";
 import { theme } from "../themes/theme";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { List } from "../utils/types";
 import { generateNewId } from "../utils/generateId";
 import { deleteTask } from "../utils/tasks/deleteTask";
 import { toggleTask } from "../utils/tasks/toggleTask";
 import { orderShoppingList } from "../utils/tasks/sortTaskList";
+import { getFromStorage, saveToStorage } from "../utils/storage";
+
+export const storageKey : string = "shopping-list";
 
 export default function App() {
   const newList: List[] = [
-    {
-      name: "Coffee",
-      id: 0,
-      status: false,
-      completedAt: null,
-    },
-    {
-      id: 1,
-      name: "Azucar",
-      status: true,
-      completedAt: new Date(Date.now()),
-    },
+    // {
+    //   name: "Coffee",
+    //   id: 0,
+    //   status: false,
+    //   completedAt: null,
+    // },
+    // {
+    //   id: 1,
+    //   name: "Azucar",
+    //   status: true,
+    //   completedAt: new Date(Date.now()),
+    // },
   ];
 
   const [isFocused, setIsFocused] = useState(false);
   const [list, changeList] = useState<List[]>(newList);
   const [input, changeInput] = useState<string>("");
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const newItem = {
       id: generateNewId(list),
       name: input,
@@ -47,9 +50,20 @@ export default function App() {
     };
     if (newItem.name !== "") {
       changeList([...list, newItem]);
+      await saveToStorage(storageKey, [...list, newItem]);
       changeInput("");
     }
   };
+
+  useEffect(() => {
+    const fetchInitial = async () => {
+      const data = await getFromStorage(storageKey);
+      if (data) {
+        changeList(data);
+      }
+    };
+    fetchInitial();
+  }, []);
 
   return (
     <FlatList
@@ -80,6 +94,7 @@ export default function App() {
             list={list}
             changeList={changeList}
             changeStatus={toggleTask}
+            storageKey={storageKey}
           ></ShoppingListItem>
         );
       }}

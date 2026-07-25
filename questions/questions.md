@@ -266,3 +266,18 @@ navigate() may go back in the stack if the target screen already exists
 
 89. Why use timestamps for sorting items instead of a simple incrementing number?
 89. Timestamps allow for more flexible sorting because they can be subtracted to determine order, and can represent a wide range of values for precise chronological sorting
+
+90. What is AsyncStorage in React Native and how is it similar to web local storage?
+90. AsyncStorage is a key-value store for native mobile applications that is similar to web local storage, but with the key difference being that all calls to AsyncStorage are asynchronous. It allows persistent storage of data across app launches and is scoped to a specific application.
+
+91. What type of data can be stored in AsyncStorage?
+91. AsyncStorage can only store string data. Complex objects must be serialized using JSON.stringify() before storing, and deserialized using JSON.parse() when retrieving. Non-serializable objects like Date cannot be directly stored.
+
+92. How do you handle asynchronous operations inside a synchronous useEffect hook?
+92. To handle asynchronous operations inside a synchronous useEffect, define an asynchronous function inside the hook and then immediately invoke that function. This allows executing async code without making the useEffect itself async.
+
+93. What are the two primary utility functions needed when working with AsyncStorage?
+93. The two primary utility functions for AsyncStorage are: getFromStorage (to retrieve data using a key) and saveToStorage (to save data using a key), both of which are asynchronous functions that handle JSON serialization and deserialization.
+
+94. What security considerations exist with AsyncStorage?
+94. AsyncStorage is an unsecured key-value store where data is scoped to the specific application. By default, one application cannot access another application's AsyncStorage, providing a basic level of data isolation.

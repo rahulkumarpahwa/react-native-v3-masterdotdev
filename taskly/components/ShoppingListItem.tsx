@@ -11,6 +11,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import Entypo from "@expo/vector-icons/Entypo";
 import { List } from "../utils/types";
 import { Dispatch, SetStateAction } from "react";
+import { saveToStorage } from "../utils/storage";
 
 type Props = {
   id: number;
@@ -20,6 +21,7 @@ type Props = {
   list: List[];
   changeList: Dispatch<SetStateAction<List[]>>;
   changeStatus: (id: number, list: List[]) => List[];
+  storageKey : string
 };
 
 export function ShoppingListItem({
@@ -30,6 +32,7 @@ export function ShoppingListItem({
   list,
   changeList,
   changeStatus,
+  storageKey
 }: Props) {
   const handleDelete = (): void => {
     Alert.alert(
@@ -41,6 +44,8 @@ export function ShoppingListItem({
           onPress: () => {
             const newList = deleteTask(id, list);
             changeList(newList);
+            console.log("storageKey =", storageKey);
+            saveToStorage(storageKey, list);
           },
           style: "destructive",
         },
@@ -74,6 +79,7 @@ export function ShoppingListItem({
           onPress={() => {
             const newList = changeStatus(id, list);
             changeList(newList);
+            saveToStorage(storageKey, newList);
           }}
         >
           <Text>
