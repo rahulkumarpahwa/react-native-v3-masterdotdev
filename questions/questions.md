@@ -251,3 +251,18 @@ navigate() may go back in the stack if the target screen already exists
 
 84. How do you implement a toggle complete function for a shopping list item in React Native?
 84. Create a handleToggleComplete function that takes an item ID, maps through the shopping list, and either sets completedAtTimestamp to undefined or Date.now() based on the current completion status of the item.
+
+85. How can you handle overly long text in a React Native view?
+85. Use flex 1 on the text container and set the Text component's numberOfLines prop to 1, which will automatically truncate text that doesn't fit in the available space
+
+86. What is the purpose of the JavaScript array .sort() method's sorting function?
+86. It compares two items and returns a number that determines their relative order: a positive number means the first item should be before the second, a negative number means the second item should be before the first, and 0 means they are equal
+
+87. How can you add spacing between items in a row using flexbox?
+87. You can use the gap property when flex direction is set to row, which adds space between rendered items
+
+88. What does flex 1 do in a React Native layout?
+88. flex 1 means the component will fill all available space in its container, which is useful for preventing overflow and managing layout
+
+89. Why use timestamps for sorting items instead of a simple incrementing number?
+89. Timestamps allow for more flexible sorting because they can be subtracted to determine order, and can represent a wide range of values for precise chronological sorting

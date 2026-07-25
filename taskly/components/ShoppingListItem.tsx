@@ -62,7 +62,14 @@ export function ShoppingListItem({
         isCompleted ? styles.itemCompleted : undefined,
       ]}
     >
-      <View style={{ flexDirection: "row", justifyContent: "center", gap: 10 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "center",
+          gap: 10,
+          flex: 1,
+        }}
+      >
         <Pressable
           onPress={() => {
             const newList = changeStatus(id, list);
@@ -78,14 +85,17 @@ export function ShoppingListItem({
           </Text>
         </Pressable>
 
-        <Text
-          style={[
-            styles.itemText,
-            isCompleted ? styles.itemTextCompleted : undefined,
-          ]}
-        >
-          {name}
-        </Text>
+        <Pressable style={{ flex: 1 }}>
+          <Text
+            style={[
+              styles.itemText,
+              isCompleted ? styles.itemTextCompleted : undefined,
+            ]}
+            numberOfLines={2}
+          >
+            {name}
+          </Text>
+        </Pressable>
       </View>
       <TouchableOpacity // adds opacity than pressable
         style={[
@@ -124,6 +134,7 @@ const styles = StyleSheet.create({
   itemText: {
     fontSize: 18,
     fontWeight: "300",
+    flex: 1,
   },
   itemButton: {
     // borderWidth: 1,

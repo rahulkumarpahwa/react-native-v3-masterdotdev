@@ -17,6 +17,7 @@ import { List } from "../utils/types";
 import { generateNewId } from "../utils/generateId";
 import { deleteTask } from "../utils/tasks/deleteTask";
 import { toggleTask } from "../utils/tasks/toggleTask";
+import { orderShoppingList } from "../utils/tasks/sortTaskList";
 
 export default function App() {
   const newList: List[] = [
@@ -24,11 +25,13 @@ export default function App() {
       name: "Coffee",
       id: 0,
       status: false,
+      completedAt: null,
     },
     {
       id: 1,
       name: "Azucar",
       status: true,
+      completedAt: new Date(Date.now()),
     },
   ];
 
@@ -40,6 +43,7 @@ export default function App() {
       id: generateNewId(list),
       name: input,
       status: false,
+      completedAt: null,
     };
     if (newItem.name !== "") {
       changeList([...list, newItem]);
@@ -85,12 +89,12 @@ export default function App() {
           <TextInput
             style={[
               styles.textInput,
-              isFocused? { borderColor: theme.colorGrey } : undefined,
+              isFocused ? { borderColor: theme.colorGrey } : undefined,
             ]}
             placeholder="E.g. Coffee"
             onChangeText={changeInput}
             keyboardType="default"
-            maxLength={30}
+            // maxLength={30}
             autoFocus
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
