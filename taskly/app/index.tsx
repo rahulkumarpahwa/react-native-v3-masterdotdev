@@ -8,6 +8,7 @@ import {
   ScrollView,
   TextInput,
   FlatList,
+  LayoutAnimation
 } from "react-native";
 import { ShoppingListItem } from "../components/ShoppingListItem";
 import { Link } from "expo-router";
@@ -49,8 +50,9 @@ export default function App() {
       completedAt: null,
     };
     if (newItem.name !== "") {
-      changeList([...list, newItem]);
       await saveToStorage(storageKey, [...list, newItem]);
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+      changeList([...list, newItem]);
       changeInput("");
     }
   };
@@ -59,6 +61,7 @@ export default function App() {
     const fetchInitial = async () => {
       const data = await getFromStorage(storageKey);
       if (data) {
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
         changeList(data);
       }
     };

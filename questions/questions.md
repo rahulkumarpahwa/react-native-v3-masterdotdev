@@ -281,3 +281,18 @@ navigate() may go back in the stack if the target screen already exists
 
 94. What security considerations exist with AsyncStorage?
 94. AsyncStorage is an unsecured key-value store where data is scoped to the specific application. By default, one application cannot access another application's AsyncStorage, providing a basic level of data isolation.
+
+95. What is Layout Animation in React Native and how is it typically used?
+95. Layout Animation is a React Native feature that animates UI changes from a previous state to the current state, automatically applying platform-specific animations. It is called immediately before a state change that will trigger a UI update, such as using LayoutAnimation.configureNext() with a preset like easeInEaseOut before updating state.
+
+96. What are the two primary libraries recommended for advanced animations in React Native?
+96. React Native Animated and React Native Gesture Handler, both built by Software Mansion. React Native Animated provides basic animation capabilities, while React Native Gesture Handler enables complex interaction-based animations like swipe to delete.
+
+97. How does LayoutAnimation.configureNext() work with state updates?
+97. The method triggers animation for the next UI update, not just the directly following line of code. State updates are batched, so configureNext() will apply to the next component re-render and UI update, even if multiple state changes occur in the same hook.
+
+98. What is the primary purpose of React Native Reanimated?
+98. React Native Reanimated is a hooks-based animation library used for creating custom animations in React Native applications, providing more advanced and flexible animation capabilities compared to the standard Animated library.
+
+99. What makes Layout Animation simple to use in React Native?
+99. Layout Animation provides an easy way to create full-page animations with minimal code. It automatically animates UI changes from the previous state to the current state, using platform-specific animation styles without requiring developers to specify detailed animation parameters.
