@@ -8,7 +8,7 @@ import {
   ScrollView,
   TextInput,
   FlatList,
-  LayoutAnimation
+  LayoutAnimation,
 } from "react-native";
 import { ShoppingListItem } from "../components/ShoppingListItem";
 import { Link } from "expo-router";
@@ -20,8 +20,9 @@ import { deleteTask } from "../utils/tasks/deleteTask";
 import { toggleTask } from "../utils/tasks/toggleTask";
 import { orderShoppingList } from "../utils/tasks/sortTaskList";
 import { getFromStorage, saveToStorage } from "../utils/storage";
+import * as Haptics from "expo-haptics";
 
-export const storageKey : string = "shopping-list";
+export const storageKey: string = "shopping-list";
 
 export default function App() {
   const newList: List[] = [
@@ -61,7 +62,7 @@ export default function App() {
     const fetchInitial = async () => {
       const data = await getFromStorage(storageKey);
       if (data) {
-      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
         changeList(data);
       }
     };

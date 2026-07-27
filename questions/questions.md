@@ -296,3 +296,18 @@ navigate() may go back in the stack if the target screen already exists
 
 99. What makes Layout Animation simple to use in React Native?
 99. Layout Animation provides an easy way to create full-page animations with minimal code. It automatically animates UI changes from the previous state to the current state, using platform-specific animation styles without requiring developers to specify detailed animation parameters.
+
+100. What is haptic feedback?
+100. Haptic feedback is a tactile vibration response from a device in response to user interactions, such as pressing buttons or typing on a keyboard, designed to enhance user experience
+
+101. What are the three main haptic feedback functions available in the Expo haptics library?
+101. The three main haptic feedback functions are impactAsync, notificationAsync, and selectionAsync, which provide different preset vibration patterns
+
+102. What haptic feedback styles were used in the application's delete and toggle functions?
+102. For deleting an item, a medium impact feedback was used. For completing an item, a success notification feedback was used, and for marking a previously completed item as undone, a medium impact feedback was applied
+
+103. How do you import the haptics library in an Expo project?
+103. Use the import statement: import * as haptics from expo-haptics
+
+104. How does haptic feedback differ between iOS and Android devices?
+104. According to the instructor's observation, Android haptic feedback feels stronger and more pronounced by default compared to iOS

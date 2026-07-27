@@ -13,6 +13,7 @@ import Entypo from "@expo/vector-icons/Entypo";
 import { List } from "../utils/types";
 import { Dispatch, SetStateAction } from "react";
 import { saveToStorage } from "../utils/storage";
+import * as Haptics from "expo-haptics";
 
 type Props = {
   id: number;
@@ -48,6 +49,7 @@ export function ShoppingListItem({
             LayoutAnimation.configureNext(
               LayoutAnimation.Presets.easeInEaseOut,
             );
+            Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
             saveToStorage(storageKey, list);
           },
           style: "destructive",
@@ -85,6 +87,15 @@ export function ShoppingListItem({
             LayoutAnimation.configureNext(
               LayoutAnimation.Presets.easeInEaseOut,
             );
+            if (
+              newList.find((item) => item.id === id && item.status === true)
+            ) {
+              Haptics.notificationAsync(
+                Haptics.NotificationFeedbackType.Success,
+              );
+            } else {
+              Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+            }
             saveToStorage(storageKey, newList);
           }}
         >
