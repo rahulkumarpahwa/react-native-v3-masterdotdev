@@ -313,6 +313,7 @@ navigate() may go back in the stack if the target screen already exists
 104. According to the instructor's observation, Android haptic feedback feels stronger and more pronounced by default compared to iOS
 
 Note: Push notifications provided by expo-notifications are unavailable in Expo Go on Android from SDK 53.
+THE OPTION TO SHOW THE NOTIFICATION IN LOCAL IS NOT AVAILABLE.
 
 105. What are the two types of push notifications?
 105. Remote notifications (sent from a server) and local notifications (scheduled within the app and sent to the current device only)
@@ -328,3 +329,18 @@ Note: Push notifications provided by expo-notifications are unavailable in Expo 
 
 109. Do push notifications work on simulators and emulators?
 109. No, push notifications do not work on simulators or emulators
+
+110. What method is used to schedule a local notification in Expo?
+110. notifications.scheduleNotificationAsync() is used to schedule a local notification, which takes content and trigger parameters
+
+111. What are the different types of notification triggers available in Expo?
+111. Notification triggers include seconds, date, time interval, daily, weekly, yearly, specific second, or particular timestamp
+
+112. How do foreground and background notifications behave differently?
+112. In foreground mode, notifications won't appear in the notifications bar by default, while background notifications will appear normally
+
+113. What import statement is required to use notifications in an Expo project?
+113. import * as notifications from 'expo-notifications'
+
+114. What configuration options can be passed when scheduling a notification?
+114. Configuration options include content (with title and body) and a trigger that determines when the notification will be sent
