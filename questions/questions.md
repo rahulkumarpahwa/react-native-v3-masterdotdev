@@ -311,3 +311,20 @@ navigate() may go back in the stack if the target screen already exists
 
 104. How does haptic feedback differ between iOS and Android devices?
 104. According to the instructor's observation, Android haptic feedback feels stronger and more pronounced by default compared to iOS
+
+Note: Push notifications provided by expo-notifications are unavailable in Expo Go on Android from SDK 53.
+
+105. What are the two types of push notifications?
+105. Remote notifications (sent from a server) and local notifications (scheduled within the app and sent to the current device only)
+
+106. How many times can a developer ask for push notification permissions?
+106. Only once. If the user declines, the developer cannot ask again and the user must manually enable permissions in the device settings
+
+107. What are the possible permission statuses for push notifications?
+107. Granted (user said yes), undetermined (never been asked), and denied (user said no)
+
+108. What is a unique characteristic of requesting push notification permissions on Android?
+108. For the latest version of Android, you need to set up a notification channel before asking for permissions, otherwise it won't work
+
+109. Do push notifications work on simulators and emulators?
+109. No, push notifications do not work on simulators or emulators
