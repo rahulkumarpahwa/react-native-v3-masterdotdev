@@ -374,3 +374,15 @@ THE OPTION TO SHOW THE NOTIFICATION IN LOCAL IS NOT AVAILABLE.
 
 124. What structure does the duration object from date-fns have?
 124. The duration object contains optional numeric properties for years, months, weeks, days, hours, minutes, and seconds
+
+125. How can you conditionally apply multiple styles to a component in React Native?
+125. By passing an array of styles instead of a single style object, allowing you to apply different styles based on conditions
+
+126. What approach can be used to change text color when an item is overdue?
+126. Use a conditional style prop like textStyle={status === 'overdue' ? styles.whiteText : undefined} to apply white text only when the item is overdue
+
+127. How can you create a visually distinct container for overdue items?
+127. Create a separate style for late/overdue containers with a different background color (like red) and apply it conditionally using an array of styles
+
+128. How can timer segments be arranged to display horizontally?
+128. Use a row style with flex-direction set to 'row' to arrange timer segments next to each other instead of vertically
