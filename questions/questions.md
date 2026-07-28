@@ -359,3 +359,18 @@ THE OPTION TO SHOW THE NOTIFICATION IN LOCAL IS NOT AVAILABLE.
 
 119. What is the recommended library for date manipulation in JavaScript and React Native?
 119. date-fns is one of the most popular libraries for date manipulation in JavaScript and React Native. It provides utility functions for formatting dates, calculating time distances (like formatDistance and formatDistanceStrict), and other date operations. It works across both web and mobile platforms.
+
+120. What TypeScript utility can be used to get the return type of a function?
+120. ReturnType and typeof can be used to get the return type of a function, such as getting the return type of interval to duration
+
+121. What method from date-fns can be used to check if one date is before another?
+121. isBefore can be used to check if one date is before another, returning a Boolean
+
+122. What parameters does interval to duration from date-fns typically require?
+122. interval to duration requires a start date and an end date to calculate the duration between those two points
+
+123. How can you specify a type for a useState hook in TypeScript?
+123. Use angle brackets with the type, like useState<CountdownStatus>, to specify the type of state the hook will manage
+
+124. What structure does the duration object from date-fns have?
+124. The duration object contains optional numeric properties for years, months, weeks, days, hours, minutes, and seconds
