@@ -344,3 +344,18 @@ THE OPTION TO SHOW THE NOTIFICATION IN LOCAL IS NOT AVAILABLE.
 
 114. What configuration options can be passed when scheduling a notification?
 114. Configuration options include content (with title and body) and a trigger that determines when the notification will be sent
+
+115. How do you update state with the current value in React using useState?
+115. You can pass a function to the setState method that receives the current value and returns the new value, such as setSecondsElapsed(val => val + 1)
+
+116. What is the purpose of returning a function from a useEffect hook?
+116. The returned function is used for cleanup, such as clearing intervals or subscriptions before the component unmounts, preventing memory leaks and multiple concurrent processes
+
+117. How do you create an interval that updates every second in React?
+117. Use setInterval() inside a useEffect hook with an empty dependency array, passing a callback function and 1000 milliseconds as arguments. When updating state within the interval, use the function form of setState (e.g., setState(currentVal => currentVal + 1)) to access the current value, since the interval callback only has access to values in the useEffect scope. Always clear the interval using clearInterval() in the cleanup function returned from useEffect to prevent multiple intervals from running simultaneously.
+
+118. What is a key consideration when creating a UI that updates every second in React?
+118. React compiler does not automatically update UI elements that haven't changed in state, so special attention must be paid to state management and rendering for time-based updates
+
+119. What is the recommended library for date manipulation in JavaScript and React Native?
+119. date-fns is one of the most popular libraries for date manipulation in JavaScript and React Native. It provides utility functions for formatting dates, calculating time distances (like formatDistance and formatDistanceStrict), and other date operations. It works across both web and mobile platforms.

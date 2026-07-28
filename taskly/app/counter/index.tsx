@@ -1,14 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { theme } from "../../themes/theme";
 import { useRouter } from "expo-router";
 
 export default function CounterScreen() {
   const [counter, changeCounter] = useState(0);
+  const [secondElapsed, setSecondElapsed] = useState(0);
   const router = useRouter();
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setSecondElapsed((val) => val + 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Counter</Text>
+      {/* <Text style={styles.text}>Counter</Text>
       <Text style={styles.counter}>{counter}</Text>
 
       <View
@@ -47,23 +59,9 @@ export default function CounterScreen() {
           activeOpacity={0.6}
         >
           <Text style={{ color: theme.colorWhite, fontSize: 20 }}>Reset</Text>
-        </TouchableOpacity>
-      </View>
+        </TouchableOpacity> */}
 
-      {/* <TouchableOpacity onPress={() => router.navigate("/idea")}>
-        <Text
-          style={{
-            textAlign: "center",
-            padding: 12,
-            margin: 18,
-            fontSize: 18,
-            borderWidth: 1,
-            borderRadius: 6,
-          }}
-        >
-          Go To /idea
-        </Text>
-      </TouchableOpacity> */}
+      <Text>{secondElapsed}</Text>
     </View>
   );
 }
