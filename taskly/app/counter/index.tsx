@@ -14,9 +14,9 @@ import { getFromStorage, saveToStorage } from "../../utils/storage";
 // 10 seconds from now :
 const frequency = 10 * 1000;
 
-const countdownStorageKey = "taskly-countdown";
+export const countdownStorageKey = "taskly-countdown";
 
-type PersistedCountdownState = {
+export type PersistedCountdownState = {
   currentNotificationId: string | undefined;
   completedAtTimestamps: number[];
 };
@@ -40,16 +40,12 @@ export default function CounterScreen() {
 
   useEffect(() => {
     const init = async () => {
-      const value : PersistedCountdownState=
-        await getFromStorage(countdownStorageKey);
+      const value: PersistedCountdownState =
+      await getFromStorage(countdownStorageKey);
       setCountdownState(value);
-      if (value?.completedAtTimestamps[0] == undefined) {
+      if (value?.completedAtTimestamps[0] === undefined) {
         setIsLoading(false);
       }
-
-      // if(value && !value.completedAtTimestamps[0]){
-      //   setIsLoading(false);
-      // }
     };
     init();
   }, []);

@@ -416,3 +416,18 @@ THE OPTION TO SHOW THE NOTIFICATION IN LOCAL IS NOT AVAILABLE.
 
 138. What potential issue can arise when using useEffect to fetch initial state from async storage?
 138. A brief visual flicker can occur between the initial default state and the loaded state, which can be mitigated by implementing a loading state
+
+139. How can you access AsyncStorage across different screens or components?
+139. By using the same key for AsyncStorage, you can access and modify the stored data from multiple screens or components in a React Native application.
+
+140. What hook is used to retrieve data from AsyncStorage in a React component?
+140. Use a useEffect hook to fetch the value from AsyncStorage using a utility function, and then set the state with the retrieved value using setState.
+
+141. What React Native component is typically used for rendering large lists of items?
+141. FlatList is the recommended component for rendering large lists of items efficiently in React Native.
+
+142. What is the purpose of using the contentContainer style in a FlatList?
+142. The contentContainer style allows you to add padding or margin to the entire list content, preventing items from being directly against the screen edges.
+
+143. How can you format timestamps into readable dates in a React Native application?
+143. Use date-fns library's format function, passing the timestamp and a full date format string to convert timestamps into human-readable date strings.
