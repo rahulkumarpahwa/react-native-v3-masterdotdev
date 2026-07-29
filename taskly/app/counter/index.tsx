@@ -1,12 +1,19 @@
 import { useEffect, useState } from "react";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { theme } from "../../themes/theme";
-import { useRouter } from "expo-router";
 import { Duration, intervalToDuration, isBefore } from "date-fns";
 import { TimeSegment } from "../../components/TimeSegment";
+import { getFromStorage, saveToStorage } from "../../utils/storage";
 
 // 10 seconds from now :
-let timeStamp = Date.now() + 10 * 1000;
+const frequency = 10 * 1000;
+
+const countdownStorageKey = "taskly-countdown";
+
+type PersistedCountdownState = {
+  currentNotificationId: string | undefined;
+  completedAtTimestamps: number[];
+};
 
 type CountDownStatus = {
   isOverdue: boolean;
@@ -14,19 +21,30 @@ type CountDownStatus = {
 };
 
 export default function CounterScreen() {
-  // const [counter, changeCounter] = useState(0);
+  const [countdownState, setCountdownState] =
+    useState<PersistedCountdownState>();
+
   const [status, setStatus] = useState<CountDownStatus>({
     isOverdue: false,
     distance: {},
   });
-  const [secondElapsed, setSecondElapsed] = useState(0);
 
-  // const router = useRouter();
+  const lastCompletedTimeStamp = countdownState?.completedAtTimestamps[0];
+
+  useEffect(() => {
+    const init = async () => {
+      const value = await getFromStorage(countdownStorageKey);
+      setCountdownState(value);
+    };
+    init();
+  }, []);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
+      const timeStamp = lastCompletedTimeStamp
+        ? lastCompletedTimeStamp + frequency
+        : Date.now() + frequency;
       const isOverdue = isBefore(timeStamp, Date.now());
-      setSecondElapsed((val) => val + 1);
       const distance = intervalToDuration(
         isOverdue
           ? { start: timeStamp, end: Date.now() }
@@ -44,7 +62,7 @@ export default function CounterScreen() {
     return () => {
       clearInterval(intervalId);
     };
-  }, []);
+  }, [lastCompletedTimeStamp]);
 
   return (
     <View
@@ -54,7 +72,7 @@ export default function CounterScreen() {
       ]}
     >
       {!status.isOverdue ? (
-        <Text style={[styles.heading]}>Thing due in</Text>
+        <Text style={[styles.heading]}>Thing due in...</Text>
       ) : (
         <Text style={[styles.heading, styles.whiteText]}>Thing overdue by</Text>
       )}
@@ -80,52 +98,18 @@ export default function CounterScreen() {
           textStyle={status.isOverdue ? styles.whiteText : undefined}
         />
       </View>
-
-      {/* <Text style={styles.text}>Counter</Text>
-      <Text style={styles.counter}>{counter}</Text>
-
-      <View
-        style={{
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "row",
-          gap: 20,
-        }}
-      >
-        <TouchableOpacity
-          style={styles.itemButton}
-          onPress={() => {
-            changeCounter((counter) => ++counter);
-          }}
-          activeOpacity={0.6}
-        >
-          <Text style={{ color: theme.colorWhite, fontSize: 20 }}>+</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.itemButton}
-          onPress={() => {
-            changeCounter((counter) => --counter);
-          }}
-          activeOpacity={0.6}
-        >
-          <Text style={{ color: theme.colorWhite, fontSize: 20 }}>-</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.itemButton}
-          onPress={() => {
-            changeCounter(0);
-          }}
-          activeOpacity={0.6}
-        >
-          <Text style={{ color: theme.colorWhite, fontSize: 20 }}>Reset</Text>
-        </TouchableOpacity> */}
-
       <TouchableOpacity
-        onPress={() => {
-          setStatus((prev) => ({ ...prev, isOverdue: false }));
-          timeStamp = Date.now() + 10000;
+        onPress={async () => {
+          // setStatus((prev) => ({ ...prev, isOverdue: false }));
+          const newCountdownState: PersistedCountdownState = {
+            currentNotificationId: "sdsddsdsd",
+            completedAtTimestamps: countdownState
+              ? [Date.now(), ...countdownState.completedAtTimestamps]
+              : [Date.now()],
+          };
+          setCountdownState(newCountdownState);
+          await saveToStorage(countdownStorageKey, newCountdownState);
+          // timeStamp = Date.now() + 10000;
         }}
         style={styles.button}
         activeOpacity={0.8}

@@ -386,3 +386,18 @@ THE OPTION TO SHOW THE NOTIFICATION IN LOCAL IS NOT AVAILABLE.
 
 128. How can timer segments be arranged to display horizontally?
 128. Use a row style with flex-direction set to 'row' to arrange timer segments next to each other instead of vertically
+
+129. What is the purpose of storing the currentNotificationId in the persisted countdown state?
+129. To allow canceling a previously scheduled notification before creating a new one, preventing duplicate notifications from being triggered for the same task
+
+130. What data structure is used to track the history of completed tasks?
+130. An array of timestamps (completedAtTimestamps) that stores the time when tasks were completed
+
+131. How is the frequency of a task initially defined in the code?
+131. Hard-coded as 10 seconds (10,000 milliseconds), with a potential future enhancement to make it dynamically configurable by users
+
+132. Why is it important to cancel previous notifications before scheduling a new one?
+132. To prevent multiple notifications from being triggered for the same task and to ensure only the most recent scheduled notification remains active
+
+133. How are new task completions added to the completedAtTimestamps array?
+133. New timestamps are added to the beginning of the array using date.now(), preserving the history of task completions
