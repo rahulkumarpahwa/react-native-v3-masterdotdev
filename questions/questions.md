@@ -401,3 +401,18 @@ THE OPTION TO SHOW THE NOTIFICATION IN LOCAL IS NOT AVAILABLE.
 
 133. How are new task completions added to the completedAtTimestamps array?
 133. New timestamps are added to the beginning of the array using date.now(), preserving the history of task completions
+
+134. What does flex: 1 do in React Native styling?
+134. It makes the container fill the entire size of the parent container
+
+135. What is the purpose of justifyContent: 'center' in React Native styling?
+135. It centers content within the container. If centering doesn't appear to work, it's often because the container isn't as large as expected - using flex: 1 makes the container fill its parent's available space, making the centering effect visible.
+
+136. Why might a loading state be important when fetching data asynchronously?
+136. To prevent flickering between initial and loaded states and provide a smoother user experience by showing a loading indicator while data is being retrieved
+
+137. What React Native component can be used to show a loading indicator?
+137. The ActivityIndicator component, which is a built-in UI element for displaying a loading spinner
+
+138. What potential issue can arise when using useEffect to fetch initial state from async storage?
+138. A brief visual flicker can occur between the initial default state and the loaded state, which can be mitigated by implementing a loading state

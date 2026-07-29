@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  ActivityIndicator,
+} from "react-native";
 import { theme } from "../../themes/theme";
 import { Duration, intervalToDuration, isBefore } from "date-fns";
 import { TimeSegment } from "../../components/TimeSegment";
@@ -21,6 +27,7 @@ type CountDownStatus = {
 };
 
 export default function CounterScreen() {
+  const [isLoading, setIsLoading] = useState<Boolean>(true);
   const [countdownState, setCountdownState] =
     useState<PersistedCountdownState>();
 
@@ -33,8 +40,16 @@ export default function CounterScreen() {
 
   useEffect(() => {
     const init = async () => {
-      const value = await getFromStorage(countdownStorageKey);
+      const value : PersistedCountdownState=
+        await getFromStorage(countdownStorageKey);
       setCountdownState(value);
+      if (value?.completedAtTimestamps[0] == undefined) {
+        setIsLoading(false);
+      }
+
+      // if(value && !value.completedAtTimestamps[0]){
+      //   setIsLoading(false);
+      // }
     };
     init();
   }, []);
@@ -44,6 +59,9 @@ export default function CounterScreen() {
       const timeStamp = lastCompletedTimeStamp
         ? lastCompletedTimeStamp + frequency
         : Date.now() + frequency;
+      if (lastCompletedTimeStamp) {
+        setIsLoading(false);
+      }
       const isOverdue = isBefore(timeStamp, Date.now());
       const distance = intervalToDuration(
         isOverdue
@@ -63,6 +81,14 @@ export default function CounterScreen() {
       clearInterval(intervalId);
     };
   }, [lastCompletedTimeStamp]);
+
+  if (isLoading) {
+    return (
+      <View style={styles.activityIndicatorContainer}>
+        <ActivityIndicator></ActivityIndicator>
+      </View>
+    );
+  }
 
   return (
     <View
@@ -172,5 +198,11 @@ const styles = StyleSheet.create({
   },
   whiteText: {
     color: theme.colorWhite,
+  },
+  activityIndicatorContainer: {
+    backgroundColor: theme.colorWhite,
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1,
   },
 });
