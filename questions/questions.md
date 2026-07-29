@@ -431,3 +431,15 @@ THE OPTION TO SHOW THE NOTIFICATION IN LOCAL IS NOT AVAILABLE.
 
 143. How can you format timestamps into readable dates in a React Native application?
 143. Use date-fns library's format function, passing the timestamp and a full date format string to convert timestamps into human-readable date strings.
+
+144. How can you programmatically trigger the ConfettiCannon in React Native?
+144. Use a ref with useRef(), pass the ref to the ConfettiCannon component, and call confettiRef?.current.start() when you want to trigger the confetti
+
+145. What method can be used to get responsive window dimensions in React Native?
+145. Use the useWindowDimensions hook, which provides width, height, and other dimension properties that automatically adapt to device orientation changes
+
+146. How do you import and use haptic feedback in a React Native application?
+146. Import haptics from expo-haptics, and use Haptics.notificationAsync(Haptics.NotificationFeedbackStyle.Success) to trigger a haptic feedback event
+
+147. How can you calculate the center of a screen dynamically in React Native?
+147. Use Dimensions.get('window').width/2 or preferably use the useWindowDimensions hook to get the width, which provides a responsive way to calculate screen center
